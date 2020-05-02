@@ -5,7 +5,26 @@ import {
   Form,
   FormItem,
   Input,
-  Message
+  Message,
+  Container,
+  Header,
+  Aside,
+  Main,
+  Menu,
+  MenuItem,
+  Submenu,
+  Breadcrumb,
+  BreadcrumbItem,
+  Col,
+  Card,
+  Row,
+  Table,
+  TableColumn,
+  Switch,
+  Tooltip,
+  Pagination,
+  Dialog,
+  MessageBox
 } from 'element-ui'
 /* Vue注册为全局可用组件 */
 Vue.use(Button)
@@ -15,3 +34,22 @@ Vue.use(Input)
 /* message挂载到vue 的原型对象 */
 
 Vue.prototype.$message = Message
+Vue.use(Container)
+Vue.use(Header)
+Vue.use(Aside)
+Vue.use(Main)
+Vue.use(Menu)
+Vue.use(MenuItem)
+Vue.use(Submenu)
+Vue.use(Breadcrumb)
+Vue.use(BreadcrumbItem)
+Vue.use(Col)
+Vue.use(Card)
+Vue.use(Row)
+Vue.use(Table)
+Vue.use(TableColumn)
+Vue.use(Switch)
+Vue.use(Tooltip)
+Vue.use(Pagination)
+Vue.use(Dialog)
+Vue.prototype.$confirm = MessageBox.confirm
