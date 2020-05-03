@@ -8,6 +8,8 @@ import './assets/css/global.css'
 import './assets/fonts/iconfont.css'
 /* 导入axios */
 import axios from 'axios'
+// 引入table-with-tree-grid
+import TreeTable from 'vue-table-with-tree-grid'
 // import vueSwiper from 'vue-awesome-swiper' // 引入vue-awesome-swiper
 // import 'swiper/dist/css/swiper.css' // 引入样式
 // Vue.use(vueSwiper)
@@ -21,6 +23,8 @@ axios.interceptors.request.use(config => {
 /* 挂载到vue的原型对象上 */
 Vue.prototype.$http = axios
 Vue.config.productionTip = false
+// 手动注册为组件
+Vue.component('tree-table', TreeTable)
 
 new Vue({
   router,
