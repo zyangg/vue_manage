@@ -174,6 +174,7 @@ export default {
       editDialogVisible: false,
       // 控制分配角色对话框的显示与隐藏
       setRoleDialogVisible: false,
+      // 需要被分配角色的用户信息
       userInfo: {},
       // 修改用户表单数据
       editForm: {},
@@ -214,7 +215,9 @@ export default {
           { validator: checkPhone, trigger: 'blur' }
         ]
       },
+      // 所有角色数据列表
       rolesList: [],
+      // 已选中角色id
       selectedRoleId: ''
     }
   },
@@ -322,6 +325,7 @@ export default {
       this.$message.success('用户删除成功')
       this.getUserList()
     },
+    // 展示分配角色对话框
     async setRole (userInfo) {
       this.userInfo = userInfo
       const { data: res } = await this.$http.get('roles')
@@ -332,6 +336,7 @@ export default {
       this.rolesList = res.data
       this.setRoleDialogVisible = true
     },
+    // 分配角色
     async saveRoleInfo () {
       if (!this.selectedRoleId) {
         this.$message.error('请选择一个角色')
@@ -349,6 +354,7 @@ export default {
       this.getUserList()
       this.setRoleDialogVisible = false
     },
+    // 重置分配角色对话框
     setRoleClosed () {
       this.selectedRoleId = ''
       this.userInfo = {}
