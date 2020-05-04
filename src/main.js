@@ -8,6 +8,12 @@ import './assets/css/global.css'
 import './assets/fonts/iconfont.css'
 /* 导入axios */
 import axios from 'axios'
+// 导入富文本编辑器
+import VueQuillEditor from 'vue-quill-editor'
+// 导入富文本编辑器样式表
+import 'quill/dist/quill.core.css' // import styles
+import 'quill/dist/quill.snow.css' // for snow theme
+import 'quill/dist/quill.bubble.css' // for bubble theme
 // 引入table-with-tree-grid
 import TreeTable from 'vue-table-with-tree-grid'
 // import vueSwiper from 'vue-awesome-swiper' // 引入vue-awesome-swiper
@@ -25,6 +31,20 @@ Vue.prototype.$http = axios
 Vue.config.productionTip = false
 // 手动注册为组件
 Vue.component('tree-table', TreeTable)
+// 全局注册富文本编辑器
+
+Vue.use(VueQuillEditor)
+// 定义全局过滤器
+Vue.filter('dateFormat', function (originVal) {
+  const dt = new Date(originVal)
+  const y = dt.getFullYear()
+  const m = (dt.getMonth() + 1 + '').padStart(2, '0')
+  const d = (dt.getDate() + '').padStart(2, '0')
+  const hh = (dt.getHours() + '').padStart(2, '0')
+  const mm = (dt.getMinutes() + '').padStart(2, '0')
+  const ss = (dt.getSeconds() + '').padStart(2, '0')
+  return `${y}-${m}-${d} ${hh}:${mm}:${ss}`
+})
 
 new Vue({
   router,
